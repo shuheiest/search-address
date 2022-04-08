@@ -1,0 +1,26 @@
+name: Compile
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  compile:
+    name: Compile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: Run compile
+        run: |
+          mkdir -p output
+          cd output
+          deno compile --target x86_64-pc-windows-msvc --output sample.exe ../src/**.ts
+      - name: Upload compiled files
+        uses: actions/upload-artifact@v2
+        with:
+          name: UnitTest report
+          path: output/
