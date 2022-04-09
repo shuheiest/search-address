@@ -1,5 +1,5 @@
-import { readLines } from "https://deno.land/std@0.134.0/io/mod.ts";
-import { sleep } from "https://deno.land/x/sleep@v1.2.1/mod.ts";
+import { readLines } from "std/io/mod.ts";
+import { sleep } from "sleep";
 
 console.log("Welcome to Deno!");
 
