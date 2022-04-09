@@ -15,12 +15,10 @@ jobs:
         with:
           deno-version: v1.x
       - name: Run compile
-        run: |
-          mkdir -p output
-          cd output
-          deno compile --target x86_64-pc-windows-msvc --output sample.exe ../src/**.ts
+        run: deno compile --target x86_64-pc-windows-msvc --output output/sample.exe src/**.ts
       - name: Upload compiled files
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: UnitTest report
+          name: result
           path: output/
+          if-no-files-found: error
