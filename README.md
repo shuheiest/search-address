@@ -1,7 +1,5 @@
-Install denon
-
-https://deno.land/x/denon@2.5.0
+Install Deno 1.20.0 or later
 
 ```bash
-$ denon dev
+$ deno task dev
 ```
