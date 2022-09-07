@@ -1,6 +1,6 @@
 name: Compile
 
-on: 
+on:
   push:
     branches:
       - main
@@ -14,8 +14,10 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.25.1
-      - name: Run compile
-        run: deno compile --importmap import_map.json --target x86_64-pc-windows-msvc --output output/sample.exe src/**.ts
+      - name: Run compile:win
+        run: deno task compile:win
+      - name: Run compile:linux
+        run: deno task compile:linux
       - name: Upload compiled files
         uses: actions/upload-artifact@v3
         with:
