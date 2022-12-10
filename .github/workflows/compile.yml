@@ -18,6 +18,8 @@ jobs:
         run: deno task compile:win
       - name: Run compile:linux
         run: deno task compile:linux
+      - name: Run compile:mac
+        run: deno task compile:mac
       - name: Upload compiled files
         uses: actions/upload-artifact@v3
         with:
